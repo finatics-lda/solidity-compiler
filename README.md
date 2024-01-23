@@ -41,10 +41,17 @@ $ docker push finatics/solidity-compiler-amd64:$SOLIDITY_VERSION
 
 ### Multi architecture manifest
 
+This step can be performed on either platform.
+
 ~~~bash
+# Create the manifest
 $ docker manifest create finatics/solidity-compiler:$SOLIDITY_VERSION \
     finatics/solidity-compiler-arm64:$SOLIDITY_VERSION \
     finatics/solidity-compiler-amd64:$SOLIDITY_VERSION
 
+# Inspect
+$ docker manifest inspect finatics/solidity-compiler:$SOLIDITY_VERSION
+
+# Push
 $ docker manifest push finatics/solidity-compiler:$SOLIDITY_VERSION
 ~~~
